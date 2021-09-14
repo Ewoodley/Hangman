@@ -15,7 +15,7 @@ namespace Hangman
 
               "Coding", "Microsoft", "Hello"
             };
-            //will be implimenting in a class
+            //needs to be implimented in a class
 
             Random getanswer = new Random();
             var newword = getanswer.Next(wordlist.Count);
@@ -25,7 +25,7 @@ namespace Hangman
             var guesscount = 6;
             int guesses;
             char[] response = new char [answer.Length];
-            //char input;
+          
             
 
 
@@ -44,14 +44,12 @@ namespace Hangman
                 {
                     
                     for (var g = 0; g < answer.Length; g++) 
-                    {
+                    
                         //int i;
                         //response[] = g;
                     
                     //for (var i = 0; i < response.Length[g]; i++) ; //this is ment to contain the user input and place it into an array to compare to the answer array
-                        
-                            
-
+                      
                             response[g] = Convert.ToChar(Console.ReadLine());
                             if (response[g] == input)
                             {
@@ -63,8 +61,16 @@ namespace Hangman
                                 Console.WriteLine($"Incorrect, you have {guesscount} guesses remaining");
 
                             }
-                        
+                            if (response == answer) //working on implimentation of victory and loss conditions
+                    {
+                        Console.WriteLine($"You guessed the word, the word is {getanswer}");
+                          }
+                            if(guesscount == 0)
+                    {
+                        Console.WriteLine($"You have {guesscount} remaining, please play again");
                     }
+                            
+                    
 
                 }
 
